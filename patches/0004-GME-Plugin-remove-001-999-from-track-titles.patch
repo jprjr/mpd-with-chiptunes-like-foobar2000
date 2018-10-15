@@ -1,0 +1,36 @@
+From 36b3d1f71212e01e3fbd63cbb171604f1b95caa6 Mon Sep 17 00:00:00 2001
+From: John Regan <john@jrjrtech.com>
+Date: Mon, 15 Oct 2018 13:19:46 -0400
+Subject: [PATCH 4/5] GME Plugin: remove (001/999) from track titles
+
+---
+ src/decoder/plugins/GmeDecoderPlugin.cxx | 13 ++-----------
+ 1 file changed, 2 insertions(+), 11 deletions(-)
+
+diff --git a/src/decoder/plugins/GmeDecoderPlugin.cxx b/src/decoder/plugins/GmeDecoderPlugin.cxx
+index 24bc918..a71d477 100644
+--- a/src/decoder/plugins/GmeDecoderPlugin.cxx
++++ b/src/decoder/plugins/GmeDecoderPlugin.cxx
+@@ -217,17 +217,8 @@ ScanGmeInfo(const gme_info_t &info, unsigned song_num, int track_count,
+ 				       StringFormat<16>("%u", song_num + 1));
+ 
+ 	if (info.song != nullptr) {
+-		if (track_count > 1) {
+-			/* start numbering subtunes from 1 */
+-			const auto tag_title =
+-				StringFormat<1024>("%s (%u/%d)",
+-						   info.song, song_num + 1,
+-						   track_count);
+-			tag_handler_invoke_tag(handler, handler_ctx,
+-					       TAG_TITLE, tag_title);
+-		} else
+-			tag_handler_invoke_tag(handler, handler_ctx,
+-					       TAG_TITLE, info.song);
++		tag_handler_invoke_tag(handler, handler_ctx,
++				       TAG_TITLE, info.song);
+ 	}
+ 
+ 	if (info.author != nullptr)
+-- 
+2.17.1 (Apple Git-112)
+

@@ -1,0 +1,25 @@
+From f1b74deb072d28dea260a6a0c36324c842384ed1 Mon Sep 17 00:00:00 2001
+From: John Regan <john@jrjrtech.com>
+Date: Mon, 15 Oct 2018 13:20:04 -0400
+Subject: [PATCH 5/5] GME Plugin: add sgc file support
+
+---
+ src/decoder/plugins/GmeDecoderPlugin.cxx | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/decoder/plugins/GmeDecoderPlugin.cxx b/src/decoder/plugins/GmeDecoderPlugin.cxx
+index a71d477..a49dada 100644
+--- a/src/decoder/plugins/GmeDecoderPlugin.cxx
++++ b/src/decoder/plugins/GmeDecoderPlugin.cxx
+@@ -313,7 +313,7 @@ gme_container_scan(Path path_fs)
+ 
+ static const char *const gme_suffixes[] = {
+ 	"ay", "gbs", "gym", "hes", "kss", "nsf",
+-	"nsfe", "sap", "spc", "vgm", "vgz",
++	"nsfe", "sap", "sgc", "spc", "vgm", "vgz",
+ 	nullptr
+ };
+ 
+-- 
+2.17.1 (Apple Git-112)
+

@@ -1,0 +1,25 @@
+From 504dc9c2d46377eb366996872c11874d5b053166 Mon Sep 17 00:00:00 2001
+From: John Regan <john@jrjrtech.com>
+Date: Mon, 15 Oct 2018 13:13:55 -0400
+Subject: [PATCH 1/5] GME Plugin: work with Kode54's fork
+
+---
+ src/decoder/plugins/GmeDecoderPlugin.cxx | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/decoder/plugins/GmeDecoderPlugin.cxx b/src/decoder/plugins/GmeDecoderPlugin.cxx
+index ba0daba..23f7649 100644
+--- a/src/decoder/plugins/GmeDecoderPlugin.cxx
++++ b/src/decoder/plugins/GmeDecoderPlugin.cxx
+@@ -154,7 +154,7 @@ gme_file_decode(DecoderClient &client, Path path_fs)
+ 		LogWarning(gme_domain, gme_err);
+ 
+ 	if (length > 0)
+-		gme_set_fade(emu, length);
++		gme_set_fade(emu, length, 8000);
+ 
+ 	/* play */
+ 	DecoderCommand cmd;
+-- 
+2.17.1 (Apple Git-112)
+

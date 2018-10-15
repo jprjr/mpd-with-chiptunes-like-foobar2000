@@ -1,0 +1,34 @@
+From c28439e29c2fcaa7c88dd8b2be03a4ef35b7b3ab Mon Sep 17 00:00:00 2001
+From: John Regan <john@jrjrtech.com>
+Date: Mon, 15 Oct 2018 13:18:42 -0400
+Subject: [PATCH 3/5] GME Plugin: fix track lengths
+
+---
+ src/decoder/plugins/GmeDecoderPlugin.cxx | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/src/decoder/plugins/GmeDecoderPlugin.cxx b/src/decoder/plugins/GmeDecoderPlugin.cxx
+index 226c101..24bc918 100644
+--- a/src/decoder/plugins/GmeDecoderPlugin.cxx
++++ b/src/decoder/plugins/GmeDecoderPlugin.cxx
+@@ -160,7 +160,7 @@ gme_file_decode(DecoderClient &client, Path path_fs)
+ 	gme_free_info(ti);
+ 
+ 	const SignedSongTime song_len = length > 0
+-		? SignedSongTime::FromMS(length)
++		? SignedSongTime::FromMS(length + 8000)
+ 		: SignedSongTime::Negative();
+ 
+ 	/* initialize the MPD decoder */
+@@ -210,7 +210,7 @@ ScanGmeInfo(const gme_info_t &info, unsigned song_num, int track_count,
+ {
+ 	if (info.play_length > 0)
+ 		tag_handler_invoke_duration(handler, handler_ctx,
+-					    SongTime::FromMS(info.play_length));
++					    SongTime::FromMS(info.play_length + 8000));
+ 
+ 	if (track_count > 1)
+ 		tag_handler_invoke_tag(handler, handler_ctx, TAG_TRACK,
+-- 
+2.17.1 (Apple Git-112)
+

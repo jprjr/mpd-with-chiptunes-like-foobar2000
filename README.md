@@ -35,7 +35,7 @@ $ cd build
 $ cmake -DCMAKE_INSTALL_PREFIX=/usr/local -DCMAKE_BUILD_TYPE=Release ..
 $ make
 $ make install DESTDIR=/usr/local/stow/libgme-0.7.0
-$ mv /usr/local/stow/libgme-0.7.0/usr/local* /usr/local/stow/libgme-0.7.0
+$ mv /usr/local/stow/libgme-0.7.0/usr/local/* /usr/local/stow/libgme-0.7.0
 $ rm -rf /usr/local/stow/libgme-0.7.0/usr
 $ cd /usr/local/stow
 $ stow libgme-0.7.0

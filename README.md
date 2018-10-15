@@ -63,7 +63,7 @@ Then just configure and install normally. Below is an example of
 compiling for OSX, tweak to suit your needs. The important part
 is `--enable-gme`
 
-You'll want MPD > 0.20.11 - before that, there's a bug with chiptune track numbering.
+You'll want MPD >= 0.20.11 - before that, there's a bug with chiptune track numbering.
 
 Some more recommendations:
 

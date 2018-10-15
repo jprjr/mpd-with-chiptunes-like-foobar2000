@@ -24,7 +24,7 @@ libraries you want to use (ffmpeg, libsidplayfp, etc).
 I like to use "stow" to have a Homebrew-ish system for locally-built packages.
 
 If you don't want to use stow, then just remote DESTDIR and install straight
-to /user/local.
+to /usr/local.
 
 ```bash
 # todo: update this if/when changes get merged into Christopher's fork
